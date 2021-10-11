@@ -9,15 +9,13 @@ body{
 }
 
 #dashboard-wrap{
-    margin: 50px auto;
+    margin: 0;
     padding: 0;
     display: flex;
     justify-content: space-between;
     height: 950px;
-    border-radius: 25px;
     overflow: hidden;
     background-color: #f0f3f8;
-    box-shadow: 0 0 50px rgba(145, 145, 145, 0.05);
 }
 
 aside{
@@ -160,15 +158,14 @@ nav .menu .fa-sort-down{
 #dashboard-content .chart-wrap .row:nth-child(1) .col{
     height: 300px;
 }
-#dashboard-content .chart-wrap .row:nth-child(2) .col{
-    height: 200px;
-}
 #dashboard-content .chart-wrap .row .col h6{
     font-size: .8rem;font-weight: bold;
     color: #888;
     margin-bottom: 20px;
 }
-
+#dashboard-content .chart-wrap .row:nth-child(2) .col{
+    height: 200px;
+}
 #dashboard-content .chart-wrap .row:nth-child(2) .col>div{
     display: flex;
     align-items: center;
@@ -200,18 +197,52 @@ nav .menu .fa-sort-down{
 }
 
 #dashboard-content .chart-wrap .row .overal-statistics{}
+#dashboard-content .chart-wrap .row .overal-statistics::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#dashboard-content .chart-wrap .row .overal-statistics .overal-rating{
+    float: left;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    color: #818a97;
+}
+#dashboard-content .chart-wrap .row .overal-statistics .overal-reviews{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    color: #818a97;
+}
+#dashboard-content .chart-wrap .row .overal-statistics .overal-rating span:nth-child(1),
+#dashboard-content .chart-wrap .row .overal-statistics .overal-reviews span:nth-child(1){
+    color: #000;
+    font-size: 30px;font-weight: bold;
+}
+
 #dashboard-content .chart-wrap .row .average{}
+#dashboard-content .chart-wrap .row .average .average-list{
+    display: flex;
+    column-gap: 30px;
+    -moz-column-gap: 30px;
+    -webkit-column-gap: 30px;
+
+}
+#dashboard-content .chart-wrap .row .average .average-list h6.clicked{
+    color: #254ae8;
+}
 #dashboard-content .chart-wrap .row .invites-sent .icon-frame{
     background-color: #6136fd;
 }
 #dashboard-content .chart-wrap .row .click-rate .icon-frame{
-    background-color: #ff771d;
+    background-color: #b620e1;
 }
 #dashboard-content .chart-wrap .row .reviews .icon-frame{
     background-color: #25c7ef;
 }
 #dashboard-content .chart-wrap .row .response-rate .icon-frame{
-    background-color: #e0a320;
+    background-color: #20e0a5;
 }
 #dashboard-content .chart-wrap .row .invites-sent h1{color: #6136fd;}
 #dashboard-content .chart-wrap .row .click-rate h1{color: #b620e1;}
@@ -272,7 +303,40 @@ nav .menu .fa-sort-down{
     color: #888;
     margin-left: 5px;
 }
-#dashboard-content .device-statistics .row .col .review-progress-wrap{}
-
-
-
+#dashboard-content .device-statistics .row .col .review-progress-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3.3333%;
+    -moz-column-gap: 3.3333%;
+    -webkit-column-gap: 3.3333%;
+}
+#dashboard-content .device-statistics .row .col .review-progress-wrap>div{
+    width: 30%;
+    height: 40px;
+}
+#dashboard-content .device-statistics .row .col .review-progress-wrap>div .progress{
+    height: 5px;
+}
+#dashboard-content .device-statistics .row .col .review-progress-wrap>div div:nth-child(2){
+    font-size: 13px;
+    color: #818a97;
+}
+#dashboard-content .device-statistics .row .col .review-progress-wrap>div div:nth-child(2) span{
+    font-weight: bold;
+    color: #000;
+}
+#dashboard-content .device-statistics .row .col .review-progress-wrap .review-5 .progress .progress-bar{
+    background-color: #ffca3c;
+}
+#dashboard-content .device-statistics .row .col .review-progress-wrap .review-4 .progress .progress-bar{
+    background-color: #25c7ef;
+}
+#dashboard-content .device-statistics .row .col .review-progress-wrap .review-3 .progress .progress-bar{
+    background-color:#977aff;
+}
+#dashboard-content .device-statistics .row .col .review-progress-wrap .review-2 .progress .progress-bar{
+    background-color: #ff771d;
+}
+#dashboard-content .device-statistics .row .col .review-progress-wrap .review-1 .progress .progress-bar{
+    background-color: #ff3333;
+}
