@@ -34,4 +34,33 @@ window.onload = function(){
             }
         }
     );
+
+	let label = [];
+	const datapoints = [0, 20, 20, 60, 60, 120, 100, 180, 120, 125, 105, 110, 170];
+	for (let i = 0; i < 12; ++i) {
+		label.push(i.toString());
+	}
+
+    let myChart2 = new Chart(
+        document.getElementById("chart-line"),
+		{
+            type: 'line',
+            data: {
+                labels: label,
+                datasets: [{
+                  label: 'My First dataset',
+                  backgroundColor: "red",
+                  data: datapoints,
+                }]
+              },
+            options: {
+                responsive: true,
+                plugins: {
+                  legend: {
+                    position: 'right',
+                  },
+                }
+            }
+        }
+    );
 }
