@@ -4,7 +4,7 @@ ul,li{
     margin: 0;padding: 0;
 }
 body{
-    background-color: #e0e4ef;
+    background-color: #f0f3f8;
     font-family: 'Lato', sans-serif;
 }
 
@@ -12,15 +12,16 @@ body{
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     overflow: hidden;
-    background-color: #f0f3f8;
+    position: relative;
+    height: 100vh;
 }
 
 aside{
-    flex: 0.45;
+    width: 20%;
+    max-width: 250px;
     background-color: #254ae8;
-    border-bottom-right-radius: 40px;
 }
 aside .account .card{
     padding: 25px;
@@ -38,7 +39,6 @@ aside .account .card .account-img img{
 }
 aside .account .card .card-body{
     padding: 1rem 0.7rem;
-    
 }
 aside .account .card .card-body .card-title{
     font-size:small;
@@ -75,10 +75,21 @@ nav .menu .fa-sort-down{
     font-size: 0.6rem;
 }
 
+.mobile-bar{
+    display: none;
+    position: fixed;
+    top: 100px;left:-3px;
+    color: #fff;
+    font-size: 20px;
+    width: 20px;height: 30px;
+    text-align: center;
+    background-color: #254ae8;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
 #dashboard-content{
-    flex: 2;
-
+    width: 80%;
 }
 #dashboard-content .container{
     padding-right: var(--bs-gutter-x,3rem);
@@ -269,18 +280,18 @@ nav .menu .fa-sort-down{
     margin: 10px;
     padding: 25px;
     border-radius: 20px;
-    height: 200px;
 }
 #dashboard-content .device-statistics .row .col h6{
     font-weight: bold;
 }
 #dashboard-content .device-statistics .row .col .card{
     height: 70px;
-    border: none;
+    border: none;;
 }
 #dashboard-content .device-statistics .row .col .card .row{
     height: 100%;
     width: 100%;
+    flex-wrap: nowrap;
 }
 #dashboard-content .device-statistics .row .col .card .row .col-md-4,
 #dashboard-content .device-statistics .row .col .card .row .col-md-8
@@ -296,7 +307,10 @@ nav .menu .fa-sort-down{
     flex: 1.5;
 }
 #dashboard-content .device-statistics .row .col .card .row .col-md-4 i{
-    font-size: 50px;
+    font-size: 3rem;
+}
+#dashboard-content .device-statistics .row .col .card .row .col-md-8 .card-body{
+    padding:0.4rem;
 }
 #dashboard-content .device-statistics .row .col .card .row .col-md-8 .card-title{
     font-size: 0.8rem;
@@ -308,7 +322,7 @@ nav .menu .fa-sort-down{
     font-weight: bold;
 }
 #dashboard-content .device-statistics .row .col .card .row .col-md-8 .card-text i{
-    font-size: 12px;color:#ffca3c;
+    font-size: .5rem;color:#ffca3c;
 }
 #dashboard-content .device-statistics .row .col .card .row .col-md-8 .card-text small:nth-child(7){
     color: #888;
@@ -353,6 +367,21 @@ nav .menu .fa-sort-down{
 }
 
 @media all and (max-width:992px){
+
+    #dashboard-content{
+        width: 100%;
+    }
+    aside{
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    .mobile-bar{
+        display: block;
+    }
+
     #dashboard-content .chart-wrap .row .overal-statistics .overal-rating span:nth-child(1),
     #dashboard-content .chart-wrap .row .overal-statistics .overal-reviews span:nth-child(1){
         font-size: 1rem;
@@ -362,3 +391,35 @@ nav .menu .fa-sort-down{
         font-size: 0.8rem;
     }
 }
+@media all and (max-width:768px) {
+    #dashboard-content .chart-wrap .row:nth-child(1) {
+        flex-direction: column;
+    }
+    #dashboard-content .chart-wrap .row:nth-child(1) .col {
+        width: 100%;
+    }
+    #dashboard-content .chart-wrap .row:nth-child(1) .col .overal-chart{
+        height: 180px;
+    }
+}
+@media all and (max-width:576px) {
+
+    #dashboard-content .top .icon-list li{
+        margin:10px;
+    }
+
+    #dashboard-content .chart-wrap .row:nth-child(2) {
+        flex-direction: column;
+    }
+}
+@media all and (max-width:425px) {
+
+    #dashboard-content .top{
+        flex-direction: column;
+    }
+    #dashboard-content .top .icon-list{
+        justify-content: flex-end;
+    }
+
+}
+
