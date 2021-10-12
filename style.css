@@ -13,7 +13,6 @@ body{
     padding: 0;
     display: flex;
     justify-content: space-between;
-    height: 950px;
     overflow: hidden;
     background-color: #f0f3f8;
 }
@@ -79,6 +78,7 @@ nav .menu .fa-sort-down{
 
 #dashboard-content{
     flex: 2;
+
 }
 #dashboard-content .container{
     padding-right: var(--bs-gutter-x,3rem);
@@ -155,6 +155,11 @@ nav .menu .fa-sort-down{
     padding: 25px;
     border-radius: 20px;
 }
+#dashboard-content .chart-wrap .row:nth-child(1){
+    flex-wrap: nowrap;
+    overflow-x:auto;
+}
+
 #dashboard-content .chart-wrap .row:nth-child(1) .col{
     height: 300px;
 }
@@ -196,7 +201,6 @@ nav .menu .fa-sort-down{
     
 }
 
-#dashboard-content .chart-wrap .row .overal-statistics{}
 #dashboard-content .chart-wrap .row .overal-statistics::after{
     content: '';
     display: block;
@@ -218,20 +222,23 @@ nav .menu .fa-sort-down{
 #dashboard-content .chart-wrap .row .overal-statistics .overal-rating span:nth-child(1),
 #dashboard-content .chart-wrap .row .overal-statistics .overal-reviews span:nth-child(1){
     color: #000;
-    font-size: 30px;font-weight: bold;
+    font-size: 2rem;font-weight: bold;
 }
-
-#dashboard-content .chart-wrap .row .average{}
 #dashboard-content .chart-wrap .row .average .average-list{
     display: flex;
     column-gap: 30px;
     -moz-column-gap: 30px;
     -webkit-column-gap: 30px;
-
 }
 #dashboard-content .chart-wrap .row .average .average-list h6.clicked{
     color: #254ae8;
 }
+#dashboard-content .chart-wrap .row .average .average-chart{
+    width: 100%;height: 80%;
+}
+
+
+
 #dashboard-content .chart-wrap .row .invites-sent .icon-frame{
     background-color: #6136fd;
 }
@@ -252,6 +259,7 @@ nav .menu .fa-sort-down{
 
 #dashboard-content .device-statistics{
     padding-top: 0;
+    overflow-x: scroll;
 }
 #dashboard-content .device-statistics .row{
     width: 130%;
@@ -290,8 +298,11 @@ nav .menu .fa-sort-down{
 #dashboard-content .device-statistics .row .col .card .row .col-md-4 i{
     font-size: 50px;
 }
+#dashboard-content .device-statistics .row .col .card .row .col-md-8 .card-title{
+    font-size: 0.8rem;
+}
 #dashboard-content .device-statistics .row .col .card .row .col-md-8 .card-text{
-    font-size: 14px;
+    font-size: .8rem;
 }
 #dashboard-content .device-statistics .row .col .card .row .col-md-8 .card-text small{
     font-weight: bold;
@@ -339,4 +350,15 @@ nav .menu .fa-sort-down{
 }
 #dashboard-content .device-statistics .row .col .review-progress-wrap .review-1 .progress .progress-bar{
     background-color: #ff3333;
+}
+
+@media all and (max-width:992px){
+    #dashboard-content .chart-wrap .row .overal-statistics .overal-rating span:nth-child(1),
+    #dashboard-content .chart-wrap .row .overal-statistics .overal-reviews span:nth-child(1){
+        font-size: 1rem;
+    }
+    #dashboard-content .chart-wrap .row .overal-statistics .overal-rating span:nth-child(2),
+    #dashboard-content .chart-wrap .row .overal-statistics .overal-reviews span:nth-child(2){
+        font-size: 0.8rem;
+    }
 }
