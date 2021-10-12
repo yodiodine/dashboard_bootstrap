@@ -77,8 +77,27 @@ window.onload = function(){
 		}
 	);
 	media();
+
+	
+	let isMobOpen = false;
 	window.onresize = function(){
+		//차트 재생성
 		media();
+
+		if(window.matchMedia("(min-width: 992px)").matches){
+			if(document.querySelector("aside").style.display === "none"){
+				document.querySelector("aside").style.display = "block";
+				isMobOpen = true;
+				document.querySelector(".mobile-bar").style.left= "245px";
+			}
+		}else{
+			if(document.querySelector("aside").style.display === "block"){
+				document.querySelector("aside").style.display = "none";
+				isMobOpen = false;
+				document.querySelector(".mobile-bar").style.left= "-3px";
+			}
+		}
+
 	}
 	
 	function media(){
@@ -124,5 +143,17 @@ window.onload = function(){
 			myChart.config._config.options.plugins.legend.position = "right";
 		}
 	}
+	document.querySelector(".mobile-bar").addEventListener("click",function(){
+		if(!isMobOpen){
+			document.querySelector("aside").style.display = "block";
+			isMobOpen = true;
+			this.style.left= "245px";
+		}else{
+			document.querySelector("aside").style.display = "none";
+			isMobOpen = false;
+			this.style.left= "-3px";
+		}
+		
+	})
 }
 
